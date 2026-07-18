@@ -1,6 +1,5 @@
-No AI written code - this has been hand written for learning purposes
 
-this is still being prototyped
+still being prototyped
 
 current progress:
 
