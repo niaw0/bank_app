@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { TitleBar } from "./components/TitleBar";
 import { useState } from "react";
+import "./App-out.css";
 
 export function Root() {
   const [amount, setAmount] = useState("");
@@ -21,7 +22,7 @@ export function Root() {
       isNaN(loanTerm) ||
       loanTerm <= 0
     ) {
-      return; 
+      return;
     }
     const monthlyRate = annualRate / 12;
     let monthlyPayment;
@@ -46,33 +47,48 @@ export function Root() {
       <div className="min-h-screen overflow-hidden bg-white">
         <TitleBar />
 
-        <div className="flex flex-col h-70 rounded-xl p-10 align-middle m-10 bg-[url(gold2.jpg)] bg-size-[auto_1200px] bg-center">
-          <h1 className="text-3xl justify-self-center font-bold text-white">
-            Modern banking
-          </h1>
-          <h1 className="text-1xl justify-self-center font-bold text-white">
-            at a breeze
-          </h1>
-          <div className="flex flex-row justify-start">
+        <div className="flex flex-row h-[280px] rounded-xl p-10 m-10 bg-[url(gold2.jpg)] bg-size-[auto_1200px] bg-center">
+          <div className="flex flex-row bg-black/50 rounded-xl w-1/3">
+            <div className="flex p-2 flex-col justify-center  ">
+              <h1 className="text-3xl ml-5 font-bold text-white">
+                Get a free £200*
+              </h1>
+              <h1 className="text-1xl ml-5 font-bold text-white">
+                when you switch to us
+              </h1>
+              <div className=" ">
+                <Link
+                  to="/signup"
+                  className="flex justify-center items-center ml-5 mt-5 bg-zinc-700 hover:bg-orange-600 text-white w-2/3 mr-2  p-2 rounded-2xl"
+                >
+                  <h2>Sign Up</h2>
+                </Link>
+              </div>
+            </div>
+            <img className="ml-15 w-1/3" src={"currswitch.png"}></img>
+          </div>
+
+          <div className="p-2 bg-black/40 justify-self-center ml-20 rounded-xl text-white w-2/5">
+            <h1 className="m-2 p-2 mt-2 text-2xl">
+              Find out about our new credit card
+            </h1>
+            <p className="m-2 pl-2">
+              0% interest for the first 6 months. 25% apr for each month
+              thereafter.
+              <br />
+              <Link className="underline">terms & conditions</Link>
+            </p>
             <Link
-              to="/dashboard"
-              className="flex justify-center items-center mt-5 bg-zinc-700 hover:bg-orange-600 text-white w-20 p-2 mr-2 rounded-2xl"
+              to="/signup"
+              className="flex justify-center items-center ml-5 mt-5 bg-zinc-700 hover:bg-orange-600 text-white mr-2  p-2 rounded-2xl w-2/4"
             >
-              <h2 className="">Login</h2>
-            </Link>
-            <Link
-              to="/dashboard"
-              className="flex justify-center items-center mt-5 bg-zinc-700 hover:bg-orange-600 text-white w-20 ml-2 mr-2  p-2 rounded-2xl"
-            >
-              <h2>Sign Up</h2>
+              <h2>Learn More</h2>
             </Link>
           </div>
         </div>
         <div className="flex flex-row">
           <div className="p-10 ml-10  border-2 border-black rounded-xl w-1/3">
-            <h1 className="text-2xl font-semibold ">
-              Loan Calculator
-            </h1>
+            <h1 className="text-2xl font-semibold ">Loan Calculator</h1>
             <p className=" ">
               Check how much you can borrow with our low interest loans.
             </p>
@@ -81,18 +97,14 @@ export function Root() {
                 onSubmit={handleCalculate}
                 className=" flex flex-col border-2 border-white  rounded-2xl w-1/2"
               >
-                <h2 className=" font-semibold pt-2">
-                  Amount £
-                </h2>
+                <h2 className=" font-semibold pt-2">Amount £</h2>
                 <input
                   onChange={(e) => setAmount(e.target.value)}
                   value={amount}
                   className="border-2 border-slate-700 text-slate-700 hover:bg-orange-200 rounded-xl p-2 mt-2 w-2/3"
                   placeholder="0-10,000"
                 ></input>
-                <h2 className="font-semibold pt-2">
-                  Rate %
-                </h2>
+                <h2 className="font-semibold pt-2">Rate %</h2>
                 <input
                   value={rate}
                   onChange={(e) => setRate(e.target.value)}
@@ -101,9 +113,7 @@ export function Root() {
                   type="percentage"
                 ></input>
 
-                <h2 className=" font-semibold pt-2">
-                  Months
-                </h2>
+                <h2 className=" font-semibold pt-2">Months</h2>
                 <input
                   onChange={(e) => setMonths(e.target.value)}
                   value={months}
@@ -111,9 +121,7 @@ export function Root() {
                   placeholder="0-58"
                 ></input>
 
-                <button
-                  className="bg-slate-700 hover:bg-orange-600 text-white rounded-xl p-2 mt-5 w-2/3 "
-                >
+                <button className="bg-slate-700 hover:bg-orange-600 text-white rounded-xl p-2 mt-5 w-2/3 ">
                   Calculate
                 </button>
               </form>
@@ -121,12 +129,17 @@ export function Root() {
               <div className="flex m-2 flex-col border-2 border-white text-black rounded-2xl p-2 w-1/2 ">
                 <h2 className=" font-semibold pt-2">The Breakdown</h2>
                 <h2 className="pt-2">Monthly Repayments</h2>
-                <p className="font-semibold"> £{breakdown?.monthlyPayment || 0.00}</p>
+                <p className="font-semibold">
+                  {" "}
+                  £{breakdown?.monthlyPayment || 0.0}
+                </p>
                 <h2 className="pt-2">Total Interest</h2>
-                <p className="font-semibold">£{breakdown?.totalInterest || 0.00}</p>
+                <p className="font-semibold">
+                  £{breakdown?.totalInterest || 0.0}
+                </p>
                 <h2 className="pt-2">Total Repayment</h2>
-                <p className="font-semibold">£{breakdown?.totalRepay || 0.00}</p>
-              </div> 
+                <p className="font-semibold">£{breakdown?.totalRepay || 0.0}</p>
+              </div>
             </div>
           </div>
 

@@ -21,42 +21,51 @@ export function Dashboard() {
     <>
       <TitleBar />
 
-      <div className="user-board flex flex-row items-center border-b-2 emerald-red-800 ">
-        <div className="user-hello flex flex-col  w-1/4 m-4 text-2xl p-2">
-          <h2 className="welcome-user p-2">
+      <div className="user-board flex flex-row items-center border-b-2 ">
+        <div className="user-hello flex flex-col  w-1/4 m-4 text-2xl p-2 ">
+          <h2 className="welcome-user">
             <span className="font-bold text-orange-600">Welcome,</span>
-            {" " + accounts.first_name[0].charAt(0).toUpperCase() +
+            {" " +
+              accounts.first_name[0].charAt(0).toUpperCase() +
               accounts.first_name[0].slice(1, accounts.first_name[0].length) +
               " " +
               accounts.last_name[0].charAt(0).toUpperCase() +
               accounts.last_name[0].slice(1, accounts.last_name[0].length)}
           </h2>
         </div>
-        <div className="flex flex-row text-center items-center w-3/4 justify-evenly mx-auto">
-          <Link to="/404"><div className="user-pins  border-2 border-emerald-800 rounded-xl border-circle w-50 p-3">
-            <div>
-              <h3>Transfers</h3>
-              <BiTransferAlt className="block mx-auto text-5xl" />
+        <div className="flex flex-row text-center items-center text-black  w-3/4 justify-evenly mx-auto">
+          <Link to="/404">
+            <div className="user-pins  border-2 border-orange-600 text-orange rounded-xl border-circle w-50 p-3">
+              <div>
+                <h3>Transfers</h3>
+                <BiTransferAlt className="block mx-auto text-5xl" />
+              </div>
             </div>
-          </div></Link>
-          <Link to="/404"><div className="user-pins  border-2 border-emerald-800 rounded-xl border-circle w-50  m-4 p-3">
-            <div>
-              <h3>Your Documents</h3>
-              <IoDocumentsOutline className="block mx-auto text-5xl" />
+          </Link>
+          <Link to="/404">
+            <div className="user-pins  border-2 border-orange-600 rounded-xl border-circle w-50  m-4 p-3">
+              <div>
+                <h3>Your Documents</h3>
+                <IoDocumentsOutline className="block mx-auto text-5xl" />
+              </div>
             </div>
-          </div></Link>
-          <Link to="/404"><div className="user-pins border-2 border-emerald-800 rounded-xl border-circle m-4 w-50 p-3">
-            <div>
-              <h3>Loans</h3>
-              <MdAttachMoney className="block mx-auto text-5xl" />
+          </Link>
+          <Link to="/404">
+            <div className="user-pins border-2 border-orange-600 rounded-xl border-circle m-4 w-50 p-3">
+              <div>
+                <h3>Loans</h3>
+                <MdAttachMoney className="block mx-auto text-5xl" />
+              </div>
             </div>
-          </div></Link>
-          <Link to="/404" ><div className="user-pins  border-2 border-emerald-800 rounded-xl border-circle w-50  m-4 p-3">
-            <div>
-              <h3>New Account</h3>
-              <FaPlus className="block mx-auto text-5xl" />
+          </Link>
+          <Link to="/404">
+            <div className="user-pins  border-2 border-orange-600 rounded-xl border-circle w-50  m-4 p-3">
+              <div>
+                <h3>New Account</h3>
+                <FaPlus className="block mx-auto text-5xl" />
+              </div>
             </div>
-          </div></Link>
+          </Link>
         </div>
       </div>
 
@@ -66,10 +75,8 @@ export function Dashboard() {
         <div className="accounts justify-center w-1/3">
           <h1 className="p-2 m-4 font-bold text-3xl">Your accounts</h1>
 
-              <AccountCard/>
-              <AccountCard/>
-
-
+          <AccountCard />
+          <AccountCard />
         </div>
 
         <div className="flex flex-col w-1/3 border-black rounded-2xl">
