@@ -1,12 +1,12 @@
-import { Link } from "react-router";
-import { TitleBar } from "./components/TitleBar";
-import { useState } from "react";
-import "./App-out.css";
+import { Link } from 'react-router';
+import { TitleBar } from './components/TitleBar';
+import { useState } from 'react';
+import './App-out.css';
 
 export function Root() {
-  const [amount, setAmount] = useState("");
-  const [rate, setRate] = useState("");
-  const [months, setMonths] = useState("");
+  const [amount, setAmount] = useState('');
+  const [rate, setRate] = useState('');
+  const [months, setMonths] = useState('');
   const [breakdown, setBreakdown] = useState(null);
 
   const handleCalculate = (e) => {
@@ -47,32 +47,32 @@ export function Root() {
       <div className="min-h-screen overflow-hidden bg-white">
         <TitleBar />
 
-        <div className="flex flex-row h-[280px] rounded-xl p-10 m-10 bg-[url(gold2.jpg)] bg-size-[auto_1200px] bg-center">
+        <div className="flex flex-row h-[70]  p-10 m-10 bg-[url(mountain2.jpg)] bg-cover bg-center">
           <div className="flex flex-row bg-black/50 rounded-xl w-1/3">
-            <div className="flex p-2 flex-col justify-center  ">
+            <div className="flex flex-col justify-center  ">
               <h1 className="text-3xl ml-5 font-bold text-white">
                 Get a free £200*
               </h1>
-              <h1 className="text-1xl ml-5 font-bold text-white">
+              <h1 className="text-1xl ml-5 mb-2 font-bold text-white">
                 when you switch to us
               </h1>
               <div className=" ">
                 <Link
                   to="/signup"
-                  className="flex justify-center items-center ml-5 mt-5 bg-zinc-700 hover:bg-orange-600 text-white w-2/3 mr-2  p-2 rounded-2xl"
+                  className="flex justify-center items-center ml-5 mt-5  bg-zinc-800 align-bottom hover:bg-orange-600 text-white w-2/3  p-2 rounded-2xl"
                 >
-                  <h2>Sign Up</h2>
+                  <h2>Switch Today</h2>
                 </Link>
               </div>
             </div>
-            <img className="ml-15 w-1/3" src={"currswitch.png"}></img>
+            <img className="ml-15 w-1/3" src={'currswitch.png'}></img>
           </div>
 
           <div className="p-2 bg-black/40 justify-self-center ml-20 rounded-xl text-white w-2/5">
-            <h1 className="m-2 p-2 mt-2 text-2xl">
+            <h1 className="m-2 p-2 mt-2 font-semibold text-2xl">
               Find out about our new credit card
             </h1>
-            <p className="m-2 pl-2">
+            <p className="m-2  pl-2">
               0% interest for the first 6 months. 25% apr for each month
               thereafter.
               <br />
@@ -80,14 +80,14 @@ export function Root() {
             </p>
             <Link
               to="/signup"
-              className="flex justify-center items-center ml-5 mt-5 bg-zinc-700 hover:bg-orange-600 text-white mr-2  p-2 rounded-2xl w-2/4"
+              className="flex justify-center items-center ml-3  bg-zinc-800 hover:bg-orange-600 text-white mr-2  p-2 rounded-2xl w-2/4"
             >
               <h2>Learn More</h2>
             </Link>
           </div>
         </div>
         <div className="flex flex-row">
-          <div className="p-10 ml-10  border-2 border-black rounded-xl w-1/3">
+          <div className="p-10 ml-10  border-2 border-orange-600 rounded-xl w-1/3">
             <h1 className="text-2xl font-semibold ">Loan Calculator</h1>
             <p className=" ">
               Check how much you can borrow with our low interest loans.
@@ -95,20 +95,20 @@ export function Root() {
             <div className="flex flex-row">
               <form
                 onSubmit={handleCalculate}
-                className=" flex flex-col border-2 border-white  rounded-2xl w-1/2"
+                className=" flex flex-col border-2 border-white mt-2  rounded-2xl w-1/2"
               >
-                <h2 className=" font-semibold pt-2">Amount £</h2>
+                <h2 className=" font-semibold mt-2">Amount £</h2>
                 <input
                   onChange={(e) => setAmount(e.target.value)}
                   value={amount}
-                  className="border-2 border-slate-700 text-slate-700 hover:bg-orange-200 rounded-xl p-2 mt-2 w-2/3"
+                  className="border-2 border-zinc-800 text-zinc-800 hover:bg-orange-500 rounded-xl p-2 mt-2 w-2/3"
                   placeholder="0-10,000"
                 ></input>
                 <h2 className="font-semibold pt-2">Rate %</h2>
                 <input
                   value={rate}
                   onChange={(e) => setRate(e.target.value)}
-                  className="border-2 border-slate-700 text-slate-700  hover:bg-orange-200 rounded-xl p-2 mt-2 w-1/3"
+                  className="border-2 border-zinc-800 text-zinc-800  hover:bg-orange-500 rounded-xl p-2 mt-2 w-1/3"
                   placeholder="0-20%"
                   type="percentage"
                 ></input>
@@ -117,20 +117,20 @@ export function Root() {
                 <input
                   onChange={(e) => setMonths(e.target.value)}
                   value={months}
-                  className="border-2 border-slate-700 hover:bg-orange-200 text-slate-700 rounded-xl p-2 mt-2 w-1/3"
+                  className="border-2 border-zinc-800 hover:bg-orange-500 text-zinc-800 rounded-xl p-2 mt-2 w-1/3"
                   placeholder="0-58"
                 ></input>
 
-                <button className="bg-slate-700 hover:bg-orange-600 text-white rounded-xl p-2 mt-5 w-2/3 ">
+                <button className="bg-zinc-800 hover:bg-orange-600 text-white rounded-xl p-2 mt-5 w-2/3 ">
                   Calculate
                 </button>
               </form>
 
-              <div className="flex m-2 flex-col border-2 border-white text-black rounded-2xl p-2 w-1/2 ">
-                <h2 className=" font-semibold pt-2">The Breakdown</h2>
+              <div className="flex m-3 flex-col border-2 border-orange-600 text-black rounded-2xl   pl-2 w-1/2 ">
+                <h2 className=" font-semibold mt-2">The Breakdown</h2>
                 <h2 className="pt-2">Monthly Repayments</h2>
                 <p className="font-semibold">
-                  {" "}
+                  {' '}
                   £{breakdown?.monthlyPayment || 0.0}
                 </p>
                 <h2 className="pt-2">Total Interest</h2>
@@ -143,9 +143,9 @@ export function Root() {
             </div>
           </div>
 
-          <div className="p-10 ml-10 mb-30 border-2 rounded-xl w-2/3 mr-10">
+          <div className="flex flex-col p-10 ml-10 space-y-3 border-2 rounded-xl border-orange-600 w-2/3 mx-auto mr-10">
             <h1 className="text-2xl font-bold ">About us</h1>
-            <br className="pb-2 border-black" />
+            <br className="pb-2 " />
             <h2 className="text-xl font-semibold">Who are we?</h2>
             <p>
               We are a global banking company, providing banking services to the

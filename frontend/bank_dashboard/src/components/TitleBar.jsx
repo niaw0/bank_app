@@ -1,10 +1,10 @@
-import { CiSettings, CiUser, CiBank, CiChat1 } from "react-icons/ci";
-import { Link } from "react-router";
+import { CiSettings, CiUser, CiBank, CiChat1 } from 'react-icons/ci';
+import { Link } from 'react-router';
 
 export function TitleBar() {
   return (
-    <div className="title-bar text-white block text-bold bg-zinc-800 border-b-4 border-orange-600 border-bottom h-15 p-4">
-      <div className="flex flex-row justify-between items-center">
+    <div className="title-bar text-white block text-bold bg-zinc-800 border-b-4 h-15 p-4 border-orange-600 border-bottom ">
+      <div className="flex flex-row justify-between items-center ">
         <Link to="/">
           <h1 className="font-semibold">Software Company.</h1>
         </Link>
