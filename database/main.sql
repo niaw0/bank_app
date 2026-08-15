@@ -6,7 +6,7 @@ CREATE DATABASE bank_vault;
 
 
 CREATE TABLE customers(
-    id integer PRIMARY KEY
+    id VARCHAR(36) PRIMARY KEY
     name VARCHAR(60) NOT NULL
     email VARCHAR(254) NOT NULL
     dob DATE NOT NULL
@@ -15,5 +15,5 @@ CREATE TABLE customers(
 
 CREATE TABLE accounts(
     customer_id integer references customers(id),
-    account_type VARCAHR() -- longest is 
+    account_type VARCAHR() -- longest is Investment, Saving Current
 )
