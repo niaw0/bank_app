@@ -33,7 +33,7 @@ export function Dashboard() {
               accounts.last_name[0].slice(1, accounts.last_name[0].length)}
           </h2>
         </div>
-        <div className="flex flex-row text-center items-center text-black  w-3/4 justify-evenly mx-auto">
+        <div className="flex flex-row text-center items-center text-black  w-3/4 p-3 justify-evenly mx-auto">
           <Link to="/404">
             <div className="user-pins  border-2 border-orange-600 text-orange rounded-xl border-circle w-50 p-3">
               <div>
@@ -43,7 +43,7 @@ export function Dashboard() {
             </div>
           </Link>
           <Link to="/404">
-            <div className="user-pins  border-2 border-orange-600 rounded-xl border-circle w-50  m-4 p-3">
+            <div className="user-pins border-2 border-orange-600 rounded-xl border-circle w-50 p-3">
               <div>
                 <h3>Your Documents</h3>
                 <IoDocumentsOutline className="block mx-auto text-5xl" />
@@ -51,7 +51,7 @@ export function Dashboard() {
             </div>
           </Link>
           <Link to="/404">
-            <div className="user-pins border-2 border-orange-600 rounded-xl border-circle m-4 w-50 p-3">
+            <div className="user-pins border-2  border-orange-600 rounded-xl border-circle  w-50 p-3">
               <div>
                 <h3>Loans</h3>
                 <MdAttachMoney className="block mx-auto text-5xl" />
@@ -59,7 +59,7 @@ export function Dashboard() {
             </div>
           </Link>
           <Link to="/404">
-            <div className="user-pins  border-2 border-orange-600 rounded-xl border-circle w-50  m-4 p-3">
+            <div className="user-pins  border-2 border-orange-600 rounded-xl border-circle w-50 p-3">
               <div>
                 <h3>New Account</h3>
                 <FaPlus className="block mx-auto text-5xl" />
@@ -82,6 +82,8 @@ export function Dashboard() {
           <div className="border-2 p-4 mr-2 border-orange-600 rounded-2xl flex justify-center">
             <SavingGraph />
           </div>
+          <h2 className="text-xl text-center font-semibold p-2">Total</h2>
+          <h3 className="text-2xl text-center p-2">£700</h3>
         </div>
 
         <div className="flex flex-col w-1/3 mr-10 rounded-2xl ">
@@ -89,6 +91,8 @@ export function Dashboard() {
           <div className="border-2 p-4 ml-2 border-orange-600 rounded-2xl flex justify-center">
             <InvestmentGraph />
           </div>
+          <h2 className="text-xl text-center font-semibold p-2">Total</h2>
+          <h3 className="text-2xl text-center p-2">£700</h3>
         </div>
       </div>
     </>

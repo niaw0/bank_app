@@ -56,26 +56,26 @@ export function Signup() {
               type="email"
               className="  bg-white hover:bg-zinc-800 hover:text-orange-600 text-zinc-800 rounded-md  p-1 pl-2"
             ></input>
-            <h2 className="mt-4 ml-2">Confirm Email*</h2>
+            <h2 className="mt-4">Confirm Email*</h2>
             <input
               name="confirmed-email"
               className=" bg-white hover:bg-zinc-800 hover:text-orange-600 text-zinc-800  rounded-md p-1 pl-2"
               required
             ></input>
-            <h2 className="mt-4 ml-2">Date of Birth*</h2>
+            <h2 className="mt-4 ">Date of Birth*</h2>
             <input
               name="dob"
               className=" bg-white hover:bg-zinc-800 hover:text-orange-600 text-zinc-800  rounded-md p-1"
               type="date"
               required
             ></input>
-            <h2 className="mt-4 ml-2">Password</h2>
+            <h2 className="mt-4">Password</h2>
             <input
               name="password"
               type="password"
               className="password bg-white hover:bg-zinc-800 hover:text-orange-600 text-zinc-800 rounded-md p-1 pl-2 "
             ></input>
-            <h2 className="mt-4 ml-2 ">Confirm Password*</h2>
+            <h2 className="mt-4">Confirm Password*</h2>
             <input
               name="confirm-password"
               type="password"
@@ -97,10 +97,10 @@ export function Signup() {
             </h1>
             <Link to={'/login'}>
               <button
-                type="Signup"
+                type="Login"
                 className=" p-3 plr mt-5 bg-orange-600 hover:bg-white hover:text-zinc-800  font-semibold rounded-lg px-5"
               >
-                Signup
+                Login
               </button>
             </Link>
           </div>

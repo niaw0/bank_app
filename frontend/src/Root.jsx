@@ -44,7 +44,7 @@ export function Root() {
   };
   return (
     <>
-      <div className="min-h-screen overflow-hidden bg-white">
+      <div className="min-h-screen overflow-hidden bg-white dark:bg-zinc-800">
         <TitleBarOut />
 
         <div className="flex flex-row h-[70]  p-10 m-10 bg-[url(mountain2.jpg)] bg-cover bg-center">
@@ -87,28 +87,28 @@ export function Root() {
           </div>
         </div>
         <div className="flex flex-row">
-          <div className="p-10 ml-10  border-2 border-orange-600 rounded-xl w-1/3">
+          <div className="p-10 ml-10  border-2  dark:text-white text-zinc-800 rounded-lg w-1/3">
             <h1 className="text-2xl font-semibold ">Loan Calculator</h1>
             <p className=" ">
               Check how much you can borrow with our low interest loans.
             </p>
-            <div className="flex flex-row">
+            <div className="flex flex-row ">
               <form
                 onSubmit={handleCalculate}
-                className=" flex flex-col border-2 border-white mt-2  rounded-2xl w-1/2"
+                className=" flex flex-col  text-zinc-800 dark:text-white border-2 border-orange-600 p-3 mt-2 rounded-lg w-1/2"
               >
                 <h2 className=" font-semibold mt-2">Amount £</h2>
                 <input
                   onChange={(e) => setAmount(e.target.value)}
                   value={amount}
-                  className="border-2 border-zinc-800 text-zinc-800 hover:bg-orange-500 rounded-xl p-2 mt-2 w-2/3"
+                  className="border-2 dark:border-orange-600 border-zinc-800  hover:bg-orange-600 rounded-md p-2 mt-2 w-2/3"
                   placeholder="0-10,000"
                 ></input>
                 <h2 className="font-semibold pt-2">Rate %</h2>
                 <input
                   value={rate}
                   onChange={(e) => setRate(e.target.value)}
-                  className="border-2 border-zinc-800 text-zinc-800  hover:bg-orange-500 rounded-xl p-2 mt-2 w-1/3"
+                  className="border-2 dark:border-orange-600 border-zinc-800   hover:bg-orange-600 rounded-md p-2 mt-2 w-1/3"
                   placeholder="0-20%"
                   type="percentage"
                 ></input>
@@ -117,16 +117,16 @@ export function Root() {
                 <input
                   onChange={(e) => setMonths(e.target.value)}
                   value={months}
-                  className="border-2 border-zinc-800 hover:bg-orange-500 text-zinc-800 rounded-xl p-2 mt-2 w-1/3"
+                  className="border-2 dark:border-orange-600 border-zinc-800 hover:bg-orange-600  rounded-md p-2 mt-2 w-1/3"
                   placeholder="0-58"
                 ></input>
 
-                <button className="bg-zinc-800 hover:bg-orange-600 text-white rounded-xl p-2 mt-5 w-2/3 ">
+                <button className=" bg-orange-600 hover:bg-white text- text-zinc-800 rounded-lg p-2 mt-5 w-2/3 ">
                   Calculate
                 </button>
               </form>
 
-              <div className="flex m-3 flex-col border-2 border-orange-600 text-black rounded-2xl   pl-2 w-1/2 ">
+              <div className="flex m-3 flex-col  border-orange-600 text-white rounded-2xl   pl-2 w-1/2 ">
                 <h2 className=" font-semibold mt-2">The Breakdown</h2>
                 <h2 className="pt-2">Monthly Repayments</h2>
                 <p className="font-semibold">
@@ -143,28 +143,30 @@ export function Root() {
             </div>
           </div>
 
-          <div className="flex flex-col p-10 ml-10 space-y-3 border-2 rounded-xl bg-orange-600 text-white w-2/3 mx-auto mr-10">
+          <div className="flex flex-col p-10 ml-10 space-y-2 rounded-lg bg-orange-600 text-white w-2/3 mx-auto mr-10">
             <h1 className="text-2xl font-bold ">About us</h1>
-            <br className="pb-2 " />
-            <h2 className="text-xl font-semibold">Who are we?</h2>
+            <br />
+            <h2 className="text-xl font-semibold pt-3">Who are we?</h2>
             <p>
               We are a intergalactic banking company who provide banking
               services to the general public in all solar systems since the
               start of time.
             </p>
             <br />
-            <br className="pb-2 border-black" />
-            <h2 className="text-xl font-semibold">Our Mission Statement</h2>
+            <br />
+            <h2 className="text-xl font-semibold pt-3">
+              Our Mission Statement
+            </h2>
             <p>
               We work to provide our customers with the greatest banking service
               they have received
             </p>
             <br />
-            <br className="pb-2 border-black" />
-            <h2 className="text-xl font-semibold">Our Services</h2>
+            <br />
+            <h2 className="text-xl font-semibold pt-3">Our Services</h2>
             <p>
-              We provide fair current, saving and investment accounts for humans
-              16+
+              We provide fair current, saving and investment accounts for
+              species 16+
             </p>
             <br />
           </div>
