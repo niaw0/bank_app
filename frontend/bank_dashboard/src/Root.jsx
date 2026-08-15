@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { TitleBar } from './components/TitleBar';
+import { TitleBarOut } from './components/TitleBarOut';
 import { useState } from 'react';
 import './App-out.css';
 
@@ -45,7 +45,7 @@ export function Root() {
   return (
     <>
       <div className="min-h-screen overflow-hidden bg-white">
-        <TitleBar />
+        <TitleBarOut />
 
         <div className="flex flex-row h-[70]  p-10 m-10 bg-[url(mountain2.jpg)] bg-cover bg-center">
           <div className="flex flex-row bg-black/50 rounded-xl w-1/3">
@@ -143,13 +143,14 @@ export function Root() {
             </div>
           </div>
 
-          <div className="flex flex-col p-10 ml-10 space-y-3 border-2 rounded-xl border-orange-600 w-2/3 mx-auto mr-10">
+          <div className="flex flex-col p-10 ml-10 space-y-3 border-2 rounded-xl bg-orange-600 text-white w-2/3 mx-auto mr-10">
             <h1 className="text-2xl font-bold ">About us</h1>
             <br className="pb-2 " />
             <h2 className="text-xl font-semibold">Who are we?</h2>
             <p>
-              We are a global banking company, providing banking services to the
-              general public in all galaxies since 100 B.C.E
+              We are a intergalactic banking company who provide banking
+              services to the general public in all solar systems since the
+              start of time.
             </p>
             <br />
             <br className="pb-2 border-black" />
