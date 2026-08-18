@@ -53,7 +53,7 @@ export function Root() {
               <h1 className="text-3xl ml-5 font-bold text-white">
                 Get a free £200*
               </h1>
-              <h1 className="text-1xl ml-5 mb-2 font-bold text-white">
+              <h1 className="text-1xl ml-5 mb-5 font-bold text-white">
                 when you switch to us
               </h1>
               <div className=" ">
