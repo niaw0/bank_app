@@ -1,9 +1,8 @@
+not suitable for production as of now.
+work underway though.
 
-still being prototyped
-
-current progress:
-
-page designs - whenever
-session management - tbc
-database - tbc 
-
+STACK:
+postgres
+react
+tailwind
+flask (gunicorn)
