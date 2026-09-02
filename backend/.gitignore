@@ -1,0 +1,7 @@
+#ignore
+./bin
+./.venv
+./include
+./lib
+./lib64
+./__pycache__
