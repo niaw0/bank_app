@@ -7,7 +7,7 @@ CREATE TABLE customers
         email         VARCHAR(254) NOT NULL UNIQUE,
         dob           DATE NOT NULL               ,
         password_hash VARCHAR(255) NOT NULL,
-        last_update DATE DEFAULT CURRENT_DATE
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 CREATE TABLE accounts
     (
@@ -15,7 +15,7 @@ CREATE TABLE accounts
         account_number  BIGINT PRIMARY KEY                  ,
         account_type    VARCHAR(18)                         ,-- longest is Investment, Saving Current
         account_balance DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
-        last_update DATE DEFAULT CURRENT_DATE
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
 
