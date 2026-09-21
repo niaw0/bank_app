@@ -9,7 +9,7 @@ import bcrypt
 app = Flask(__name__)
 
 CORS(app, origins=["http://localhost:5173"])
-db_conn = psycopg2.connect("dbname=bank_vault user=manager host=localhost")
+db_conn = psycopg2.connect("dbname=bank_vault user=customer host=localhost")
 
 db_cur = db_conn.cursor()
 
@@ -17,8 +17,27 @@ db_cur = db_conn.cursor()
 
 @app.route('/api/login', methods=['POST'])
 def login():
-    username = request.form.get('username')
-    passhash = request.form.get('password')
+    data = request.get_json() or {}
+
+    username = str(data.get('username'))
+    password = str(data.get('password'))
+
+
+    if not username or not password:
+        return "no username or password"
+
+    cur.execute("SELECT username, password_hash FROM customers WHERE username = %s AND password_hash = %s;", (username, password_hash))
+    result = cur.fetchone();
+    print()
+    bcrypt.compare(password)
+    
+
+
+
+#need to check if user is authentication before redirection
+
+
+#  return redirect("/dashboard")
 
 
 @app.route('/api/signup', methods=['POST'])
@@ -40,14 +59,8 @@ def signup():
     INSERT INTO customers (name, email, dob, password_hash) VALUES (%s, %s, %s, %s);
     """
 
-    try:
-        db_cur.execute(query, (name, email, dob, password_hash))
-        db_conn.commit()
-        return ( jsonify({'message': 'Creation Successful'}), 201)
-        
-    except Error as e:
-        db_conn.rollback();
-        return jsonify({'error': f"{e}"}), 400
+
+#    return redirect("/dashboard")
 
 
 

@@ -1,8 +1,10 @@
+
+
 DROP TABLE IF EXISTS accounts, customers;
 
 CREATE TABLE customers
     (
-        id            BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY    ,
+        id            BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY  ,
         name          VARCHAR(60) NOT NULL        ,
         email         VARCHAR(254) NOT NULL UNIQUE,
         dob           DATE NOT NULL               ,
@@ -13,11 +15,27 @@ CREATE TABLE accounts
     (
         customer_id     BIGINT references customers(id),
         account_number  BIGINT PRIMARY KEY                  ,
-        account_type    VARCHAR(18)                         ,-- longest is Investment, Saving Current
+        account_type    VARCHAR(30)                         ,
         account_balance DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
         last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
+
+    CREATE TABLE cards (
+        card_id BIGINT PRIMARY KEY UNIQUE,
+        customer BIGINT references accounts(customer_id),
+        card_number VARCHAR(19),
+        transact_id BIGINT -- id for user transactions
+    );
+
+
+    CREATE TABLE transactions(
+        transaction_identifier BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+        transaction_id BIGINT references cards(transact_id),
+        customer_id BIGINT references accounts(customer_id),
+        transaction_type VARCHAR(100)
+
+);
 
 
 -- 5 test records
@@ -29,7 +47,7 @@ VALUES
     ('David Kim', 'david.kim@example.com', '1995-01-30', '$2b$12$3D4f5G6h7J8k9L0m1N2O3e8w/u4uG8D3m4A1Z7s9XPeKl7H1sV1G2'),
     ('Elena Rostova', 'elena.rostova@example.com', '1984-09-18', '$2b$12$q5R6s7T8uE8w/u4uG8D3mZ7s9XPeKl7H1sV1G2s3D4k9L0m1N2O');
 
--- I5 test records
+-- 5 test records
 
 INSERT INTO accounts (customer_id, account_number, account_type, account_balance)
 VALUES

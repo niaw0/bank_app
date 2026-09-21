@@ -47,8 +47,8 @@ export function Root() {
       <div className="min-h-screen overflow-hidden bg-white dark:bg-zinc-800">
         <TitleBarOut />
 
-        <div className="flex flex-row h-[70]  p-10 m-10 bg-[url(mountain2.jpg)] bg-cover bg-center">
-          <div className="flex flex-row bg-black/50 rounded-xl w-1/3">
+        <div className="flex flex-row h-[70] justify-space-between p-10 m-10 bg-[url(mountain2.jpg)] bg-cover bg-center">
+          <div className="flex flex-row  bg-black/50 rounded-xl w-1/3">
             <div className="flex flex-col justify-center  ">
               <h1 className="text-3xl ml-5 font-bold text-white">
                 Get a free £200*
@@ -121,12 +121,12 @@ export function Root() {
                   placeholder="0-58"
                 ></input>
 
-                <button className=" bg-orange-600 hover:bg-white text- text-zinc-800 rounded-lg p-2 mt-5 w-2/3 ">
+                <button className=" bg-zinc-800 text-white hover:bg-orange-600 rounded-lg p-2 mt-5 w-2/3 ">
                   Calculate
                 </button>
               </form>
 
-              <div className="flex m-3 flex-col  border-orange-600 text-white rounded-2xl   pl-2 w-1/2 ">
+              <div className="flex m-3 flex-col  border-orange-600 text-zinc-800 dark:text-white rounded-2xl   pl-2 w-1/2 ">
                 <h2 className=" font-semibold mt-2">The Breakdown</h2>
                 <h2 className="pt-2">Monthly Repayments</h2>
                 <p className="font-semibold">
