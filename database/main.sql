@@ -1,6 +1,6 @@
 
 
-DROP TABLE IF EXISTS accounts, customers;
+DROP TABLE IF EXISTS accounts, customers, cards, transactions;
 
 CREATE TABLE customers
     (
@@ -22,19 +22,21 @@ CREATE TABLE accounts
 
 
     CREATE TABLE cards (
-        card_id BIGINT PRIMARY KEY UNIQUE,
+        card_id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         customer BIGINT references accounts(customer_id),
-        card_number VARCHAR(19),
+        card_number VARCHAR(19) NOT NULL,
+        cvv VARCHAR(3) NOT NULL,
         transact_id BIGINT -- id for user transactions
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
 
     CREATE TABLE transactions(
         transaction_identifier BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         transaction_id BIGINT references cards(transact_id),
-        customer_id BIGINT references accounts(customer_id),
-        transaction_type VARCHAR(100)
-
+        customer_id BIGINT references cards(customer),
+        transaction_type VARCHAR(100),
+        last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 

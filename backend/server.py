@@ -1,17 +1,24 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, session
 import uuid
 from flask_cors import CORS
 import psycopg2
 from psycopg2 import Error
 from flask_login import LoginManager
 import bcrypt 
+from dotenv import load_dotenv
+
+
 
 app = Flask(__name__)
 
-CORS(app, origins=["http://localhost:5173"])
-db_conn = psycopg2.connect("dbname=bank_vault user=customer host=localhost")
+load_dotenv()
 
-db_cur = db_conn.cursor()
+
+#connect to db and connect as customer with read only access
+CORS(app, origins=["http://localhost:5173"])
+db_conn = psycopg2.connect("dbname=bank_db user=customer host=localhost")
+cur = db_conn.cursor()
+
 
 
 
@@ -19,17 +26,31 @@ db_cur = db_conn.cursor()
 def login():
     data = request.get_json() or {}
 
-    username = str(data.get('username'))
+    email = str(data.get('email'))
     password = str(data.get('password'))
 
 
     if not username or not password:
-        return "no username or password"
+        return jsonify({"error": "username or password required"})
 
-    cur.execute("SELECT username, password_hash FROM customers WHERE username = %s AND password_hash = %s;", (username, password_hash))
-    result = cur.fetchone();
-    print()
-    bcrypt.compare(password)
+    query = """SELECT id, email, password_hash FROM customers WHERE email = %s;"""
+    cur.execute(query, (username,))
+    result = cur.fetchone()
+    cur.close()
+
+    
+    compared = bcrypt.checkpw(password, result[2])
+
+
+    
+    if compared == True:
+        session["email"] = result[1]
+        session["id"] = result[0] 
+
+        return redirect("/dashboard")
+    else:
+        return jsonify({"error": "password or email incorrect" }), 404
+
     
 
 
@@ -60,7 +81,17 @@ def signup():
     """
 
 
+    cur.execute(query, (name, email, dob, password_hash))
+
+    cur.close()
+
+
 #    return redirect("/dashboard")
+
+
+@app.route('/api/dashboard_data', methods=[POST])
+def dashboard_data():
+    return 0
 
 
 
