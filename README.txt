@@ -1,8 +1,3 @@
-not suitable for production as of now.
-work underway though.
+work underway
 
-STACK:
-postgres
-react
-tailwind
-flask (gunicorn)
+full stack bank

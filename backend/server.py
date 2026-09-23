@@ -30,11 +30,11 @@ def login():
     password = str(data.get('password'))
 
 
-    if not username or not password:
+    if not email or not password:
         return jsonify({"error": "username or password required"})
 
     query = """SELECT id, email, password_hash FROM customers WHERE email = %s;"""
-    cur.execute(query, (username,))
+    cur.execute(query, (email,))
     result = cur.fetchone()
     cur.close()
 
@@ -49,7 +49,7 @@ def login():
 
         return redirect("/dashboard")
     else:
-        return jsonify({"error": "password or email incorrect" }), 404
+        return jsonify({"error": "invalid credentials" }), 401
 
     
 
@@ -84,6 +84,8 @@ def signup():
     cur.execute(query, (name, email, dob, password_hash))
 
     cur.close()
+
+    
 
 
 #    return redirect("/dashboard")
