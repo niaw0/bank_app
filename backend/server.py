@@ -44,8 +44,8 @@ def login():
 
     
     if compared == True:
-        session["email"] = result[1]
-        session["id"] = result[0] 
+        session['email'] = result[1]
+        session['id'] = result[0] 
 
         return redirect("/dashboard")
     else:
@@ -85,7 +85,7 @@ def signup():
 
     cur.close()
 
-    
+
 
 
 #    return redirect("/dashboard")
