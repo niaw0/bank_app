@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+import * as d3 from 'd3';
 
 export function SavingGraph({
   data = [1000, 700, 1500, 2000, 2000, 2550],
@@ -7,21 +7,23 @@ export function SavingGraph({
   marginTop = 30,
   marginRight = 20,
   marginBottom = 60, // Increased to make room for X-axis labels
-  marginLeft = 70    // Increased to make room for Y-axis labels
+  marginLeft = 70, // Increased to make room for Y-axis labels
 }) {
   if (!data || data.length === 0) return null;
 
-  const x = d3.scaleLinear([0, data.length - 1], [marginLeft, width - marginRight]);
+  const x = d3.scaleLinear(
+    [0, data.length - 1],
+    [marginLeft, width - marginRight]
+  );
   const y = d3.scaleLinear(d3.extent(data), [height - marginBottom, marginTop]);
   const line = d3.line((d, i) => x(i), y);
 
   // 1. Generate tick values using D3 scales
-  const yTicks = y.ticks(5); // Ask D3 for ~5 nice, even intervals
+  const yTicks = y.ticks(5);
   const xTicks = data.map((_, i) => i); // Create a tick for every index in our array
 
   return (
-    <svg width={width} height={height} style={{ overflow: "visible" }}>
-      
+    <svg width={width} height={height} style={{ overflow: 'visible' }}>
       {/* Y-AXIS TICKS & GRIDLINES */}
       {yTicks.map((tick) => (
         <g key={tick} transform={`translate(0, ${y(tick)})`}>
@@ -54,7 +56,6 @@ export function SavingGraph({
         </text>
       ))}
 
-     
       <path fill="none" stroke="#f54900" strokeWidth="2.5" d={line(data)} />
       <g fill="white" stroke="#f54900" strokeWidth="2">
         {data.map((d, i) => (
@@ -62,15 +63,13 @@ export function SavingGraph({
         ))}
       </g>
 
-      
       <text
         transform={`translate(${marginLeft - 45}, ${(height - marginTop - marginBottom) / 2 + marginTop}) rotate(-90)`}
         textAnchor="middle"
         fontSize="12"
         fontWeight="600"
         fill="#1e293b"
-      >
-      </text>
+      ></text>
 
       {/* X-AXIS TITLE */}
       <text
@@ -83,4 +82,6 @@ export function SavingGraph({
       >
         Timeline
       </text>
-    </svg>)}
+    </svg>
+  );
+}
