@@ -21,9 +21,9 @@ CREATE TABLE accounts
     );
 
 
-    CREATE TABLE cards (
+CREATE TABLE cards (
         card_id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        customer BIGINT references accounts(customer_id),
+        customer BIGINT references customers(id),
         card_number VARCHAR(19) NOT NULL,
         cvv VARCHAR(3) NOT NULL,
         transact_id BIGINT, -- id for user transactions
@@ -31,9 +31,9 @@ CREATE TABLE accounts
     );
 
 
-    CREATE TABLE transactions(
-        transaction_identifier BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        transaction_id BIGINT references cards(transact_id),
+CREATE TABLE transactions(
+        card_identifier BIGINT PRIMARY KEY references cards(card_id),
+        transaction_id BIGINT UNIQUE,
         customer_id BIGINT references customers(id),
         transaction_type VARCHAR(100),
         last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP

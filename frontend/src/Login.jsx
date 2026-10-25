@@ -22,6 +22,7 @@ export async function user_login({ request }) {
         }),
       }
     );
+
     if (!backend_call.ok) {
       throw new Error(`Response status: ${backend_call.status}`);
     }
@@ -68,6 +69,7 @@ export function Login() {
             <button
               type="submit"
               className=" rounded-xl bg-white hover:bg-zinc-800 hover:text-orange-600  text-zinc-800 p-3 mt-5 w-2/4"
+              onClick={user_login}
             >
               Login
             </button>

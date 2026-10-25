@@ -49,7 +49,6 @@ export function Signup() {
     password.length >= 8 &&
     /\d{2,}/.test(password) &&
     /[^A-Za-z0-9]/.test(password);
-  const validated = emailsMatch && passwordsMatch && passwordValidate;
 
   const inputBase =
     'hover:bg-zinc-800 hover:text-orange-600 text-zinc-800 rounded-md p-1 pl-2';
@@ -112,7 +111,6 @@ export function Signup() {
 
             <button
               type="submit"
-              disabled={!validated}
               className="rounded-xl bg-white hover:bg-zinc-800 hover:text-orange-600 text-zinc-800 p-3 mt-5 w-2/4 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Sign Up
@@ -125,7 +123,6 @@ export function Signup() {
             <h1 className="text-2xl font-semibold">Already have an account?</h1>
             <Link to={'/login'}>
               <button
-                disabled={!validated}
                 type="button"
                 className="p-3 plr mt-5 bg-orange-600 hover:bg-white hover:text-zinc-800 font-semibold rounded-lg px-5"
               >
